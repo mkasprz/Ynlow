@@ -5,15 +5,23 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-	private Controller controller;
+	public GameObject jumpButton;
+	public Controller controller;
+
+	//private Controller controller;
+	public void jump() {
+		controller.jump ();
+	}
 
 	// Use this for initialization
 	void Awake () {
+		if (Application.platform == RuntimePlatform.Android)
+			controller = gameObject.AddComponent<AndroidController> ();
+		else
+			controller = gameObject.AddComponent<KeyboardController> ();
+		controller.jumpButton = jumpButton;
 		
-		foreach (string a in Input.GetJoystickNames()) {
-			Debug.Log (a);
-		}
-		controller = new KeyboardController ();
+
 	}
 	
 	// Update is called once per frame

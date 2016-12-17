@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
 
+	public Rigidbody2D rigid;
+	public GameObject jumpButton;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+
 	}
 
-	public void move(float speed) {
-		Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-		//Debug.Log (move);
-		transform.position += move * speed * Time.deltaTime;
+	public void jump() {
+		Debug.Log (GetComponent<Rigidbody2D> ());
+		rigid.velocity = new Vector2 (0, 5);
+		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (5, -5));
 	}
+
+
 	public 
 
 	// Update is called once per frame

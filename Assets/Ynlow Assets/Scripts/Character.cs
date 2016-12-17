@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
-	public GameObject jumpButton;
+	public GameObject attackButton;
 	public Controller controller;
 	public FootCollider foots;
+	public GameObject androidButton;
 
 	//private Controller controller;
 	public void jump() {
@@ -16,11 +17,16 @@ public class Character : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		if (Application.platform == RuntimePlatform.Android)
+		if (Application.platform == RuntimePlatform.Android) {
 			controller = gameObject.AddComponent<AndroidController> ();
-		else
+			((AndroidController)controller).a = androidButton.GetComponent<AndroidJoystick>();
+			((AndroidController)controller).attackButton = attackButton;
+		} else {
 			controller = gameObject.AddComponent<KeyboardController> ();
-		controller.jumpButton = jumpButton;
+			androidButton.SetActive (false);
+			attackButton.SetActive (false);
+		}
+//		controller.jumpButton = jumpButton;
 		controller.foots = foots;
 
 	}

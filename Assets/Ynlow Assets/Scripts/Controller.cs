@@ -14,7 +14,6 @@ public class Controller : MonoBehaviour {
 
 	public float tmp = 0;
 
-	// Use this for initialization
 	void Awake () {
 
 	}
@@ -24,7 +23,6 @@ public class Controller : MonoBehaviour {
 		if (!foots.inTheAir)
 			rigid.velocity = new Vector2 (0, jumpHigh);
 		foots.inTheAir = true;
-		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (5, -5));
 	}
 
 	public void makeMove(Vector3 move) {
@@ -36,13 +34,9 @@ public class Controller : MonoBehaviour {
 		transform.localScale += new Vector3 (0.4f,0.4f,0);
 		tmp = cooldown;
 	}
-
-
-//	void OnCollisionEnter(
-
-	// Update is called once per frame
-	void Update () {
 		
-//		Debug.Log ("FROM FATHER");
+	void Update () {
+
 	}
+		
 }

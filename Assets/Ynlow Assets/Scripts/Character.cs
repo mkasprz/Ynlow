@@ -7,6 +7,7 @@ public class Character : MonoBehaviour {
 
 	public GameObject jumpButton;
 	public Controller controller;
+	public FootCollider foots;
 
 	//private Controller controller;
 	public void jump() {
@@ -20,7 +21,7 @@ public class Character : MonoBehaviour {
 		else
 			controller = gameObject.AddComponent<KeyboardController> ();
 		controller.jumpButton = jumpButton;
-		
+		controller.foots = foots;
 
 	}
 	

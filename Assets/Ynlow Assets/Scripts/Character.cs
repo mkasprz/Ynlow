@@ -8,6 +8,7 @@ public class Character : MonoBehaviour {
 	public GameObject jumpButton;
 	public Controller controller;
 	public FootCollider foots;
+	public bool hidden;
 
 	//private Controller controller;
 	public void jump() {
@@ -24,9 +25,22 @@ public class Character : MonoBehaviour {
 		controller.foots = foots;
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+	public void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.gameObject.name == "Light") {
+			hidden = true;
+		}
+	}
+
+	public void OnTriggerExit2D(Collider2D collider) {
+		if (collider.gameObject.name == "Light") {
+			hidden = false;
+		}
+	}
+	
 }

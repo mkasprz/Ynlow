@@ -18,14 +18,10 @@ public class Controller : MonoBehaviour {
 		if (!foots.inTheAir)
 		rigid.velocity = new Vector2 (0, 10);
 		foots.inTheAir = true;
-		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (5, -5));
 	}
-
-
-//	void OnCollisionEnter(
 
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log ("FROM FATHER");
+
 	}
 }

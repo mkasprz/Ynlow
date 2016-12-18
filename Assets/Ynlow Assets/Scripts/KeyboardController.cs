@@ -24,11 +24,5 @@ public class KeyboardController : Controller {
 		}
 
 
-		if (tmp > 0) {
-			tmp -= Time.deltaTime;
-			if(tmp <= 0)
-				transform.localScale -= new Vector3 (0.4f,0.4f,0);
-		}
-
 	}
 }

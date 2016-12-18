@@ -23,13 +23,6 @@ public class AndroidController : Controller {
 	
 	// Update is called once per frame
 	void Update () {
-		if (tmp > 0) {
-			tmp -= Time.deltaTime;
-			if(tmp <= 0)
-				transform.localScale -= new Vector3 (0.4f,0.4f,0);
-		}
-
-
 		cooldownCounter += Time.deltaTime;
 		Vector2 pos;
 		if (Input.touchCount > 1) {

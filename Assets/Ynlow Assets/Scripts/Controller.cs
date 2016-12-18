@@ -14,7 +14,6 @@ public class Controller : MonoBehaviour {
 	public float mo;
 
 	private bool inputEnabled = true;
-	public float tmp = 0;
 
 	void Awake () {
 
@@ -45,8 +44,6 @@ public class Controller : MonoBehaviour {
 	public void attack() {
 		GetComponent<Health> ().takeDamage (10);
 		cooldownCounter = 0;
-		transform.localScale += new Vector3 (0.4f,0.4f,0);
-		tmp = cooldown;
 	}
 		
 	void Update () {

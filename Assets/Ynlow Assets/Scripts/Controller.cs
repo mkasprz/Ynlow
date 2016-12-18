@@ -26,7 +26,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void makeMove(Vector3 move) {
-		transform.position += move * speed * Time.deltaTime;
+		rigid.velocity = new Vector2((move * speed*1.5f).x, rigid.velocity.y);
 	}
 
 	public void attack() {

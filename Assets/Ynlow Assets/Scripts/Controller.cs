@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour {
 	public float jumpHigh = 10;
 	public float cooldown = 0.3f;
 	public float cooldownCounter = 0;
+	public float mo;
 
 	public float tmp = 0;
 
@@ -26,6 +27,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void makeMove(Vector3 move) {
+		mo = Mathf.Abs (move.x);
 		rigid.velocity = new Vector2((move * speed*1.5f).x, rigid.velocity.y);
 	}
 

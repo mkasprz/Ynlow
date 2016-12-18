@@ -23,6 +23,11 @@ public class Enemy1 : MonoBehaviour {
 	private bool right = true;
 
 	// Use this for initialization
+	void Start() {
+		killHim = GameObject.FindGameObjectWithTag ("Player").GetComponent<Health>();
+		visible = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character>();
+	}
+
 	void Awake () {
 		rigid = GetComponent<Rigidbody2D> ();
 		startingPoint = transform.position;
@@ -72,4 +77,11 @@ public class Enemy1 : MonoBehaviour {
 		} else
 			seeMee = false;
 	}
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.tag == "Sword") {
+			GetComponent<EnemyHealth> ().takeDamage (10);
+		}
+	}
+
 }

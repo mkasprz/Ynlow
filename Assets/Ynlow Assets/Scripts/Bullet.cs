@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
 
 	public float velocity = 1;
 	public float lifetime = 2;
+	public int damage = 5;
 	public Vector3 target = Vector3.zero;// = Vector3.zero;
 
 	// Use this for initialization
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "Player") {
-			collider.GetComponent<Health> ().takeDamage (5);
+			collider.GetComponent<Health> ().takeDamage (damage);
 		}
 			Destroy (gameObject);
 	}

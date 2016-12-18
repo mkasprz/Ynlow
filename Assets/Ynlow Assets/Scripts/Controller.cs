@@ -38,12 +38,13 @@ public class Controller : MonoBehaviour {
 		mo = Mathf.Abs (move.x);
 		if (inputEnabled) {
 			rigid.velocity = new Vector2 ((move * speed * 1.5f).x, rigid.velocity.y);
+		} else {
+			rigid.velocity = Vector2.zero;
 		}
 	}
 
 	public void attack() {
-		GetComponent<Health> ().takeDamage (10);
-		cooldownCounter = 0;
+		gameObject.GetComponent<AnimController> ().attackenable = true;
 	}
 		
 	void Update () {

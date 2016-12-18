@@ -1,0 +1,9 @@
+diff a/Assets/Ynlow Assets/Scripts/Character.cs b/Assets/Ynlow Assets/Scripts/Character.cs	(rejected hunks)
+@@ -9,6 +9,7 @@
+ 	public Controller controller;
+ 	public FootCollider foots;
+ 	public GameObject androidButton;
++	public bool hidden;
+ 
+ 	public void jump() {
+ 		controller.jump ();

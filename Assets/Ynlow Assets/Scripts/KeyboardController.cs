@@ -15,11 +15,11 @@ public class KeyboardController : Controller {
 	// Update is called once per frame
 	void Update () {
 		move (speed);
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetButtonDown("Jump")) {
 			jump ();
 		}
 		cooldownCounter += Time.deltaTime;
-		if (Input.GetKeyDown (KeyCode.LeftAlt) && cooldownCounter > cooldown) {
+		if (Input.GetButtonDown("Fire1") && cooldownCounter > cooldown) {
 			attack ();
 		}
 

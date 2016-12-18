@@ -35,18 +35,18 @@ public class Character : MonoBehaviour {
 	void Update () {
 		if (rigid.velocity.x < 0 && right)
 			flip ();
-		else if (rigid.velocity.x >= 0 && !right)
+		else if (rigid.velocity.x > 0 && !right)
 			flip ();
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.gameObject.name == "Light") {
+		if (collider.gameObject.tag == "Light") {
 			hidden = true;
 		}
 	}
 
 	public void OnTriggerExit2D(Collider2D collider) {
-		if (collider.gameObject.name == "Light") {
+		if (collider.gameObject.tag == "Light") {
 			hidden = false;
 		}
 	}

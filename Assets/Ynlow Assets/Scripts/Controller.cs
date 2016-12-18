@@ -30,6 +30,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void attack() {
+		GetComponent<Health> ().takeDamage (10);
 		cooldownCounter = 0;
 		transform.localScale += new Vector3 (0.4f,0.4f,0);
 		tmp = cooldown;

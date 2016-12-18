@@ -20,6 +20,8 @@ public class AnimController : MonoBehaviour {
 
 
 
+	public bool attackenable;
+
 	// enable key working
 	public bool KeysON;
 
@@ -33,6 +35,7 @@ public class AnimController : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();
 		KeysON = true;
+		attackenable = false;
 
 	}
 	
@@ -43,9 +46,12 @@ public class AnimController : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		speed = gameObject.GetComponent<Controller> ().speed;
+		
 
 		currentBaseLayer = anim.GetCurrentAnimatorStateInfo (0);
+
+
+
 		if (KeysON == true) {
 			//speed = Input.GetAxis ("Horizontal");				// setup h variable as our horizontal input axis
 			speed = gameObject.GetComponent<Controller>().mo;
@@ -58,10 +64,16 @@ public class AnimController : MonoBehaviour {
 			//Move forward
 			//RunForward(vSpeed);
 
-
+			if ( attackenable == true)
 			// Attacks---Fighting
 			BattleActions ();
 
+		}
+		if (currentBaseLayer.nameHash == hack01 || currentBaseLayer.nameHash == hack02 || currentBaseLayer.nameHash == Hack1_to_Hack2){
+			gameObject.SendMessage ("disableInput");
+			
+		} else {
+			gameObject.SendMessage ("enableInput");
 		}
 	}
 
@@ -80,7 +92,7 @@ public class AnimController : MonoBehaviour {
 
 	void BattleActions()
 	{
-		
+		/*
 			if( Input.GetButtonDown("Fire1")   )
 			{
 				StartCoroutine("Attack1");
@@ -90,7 +102,15 @@ public class AnimController : MonoBehaviour {
 			{
 				StartCoroutine("Attack2");
 			}
-	
+		*/
+		if(  currentBaseLayer.nameHash != Hack1_to_Hack2  )
+		{
+			StartCoroutine("Attack1");
+			attackenable = false;
+		} else {
+			StartCoroutine("Attack2");
+			attackenable = false;
+		}
 
 	}
 				/*
